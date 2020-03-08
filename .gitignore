@@ -24,3 +24,6 @@ eggs/
 *.egg
 .DS_Store
 .vscode/*
+.ipynb_checkpoints/
+content/
+demo/
