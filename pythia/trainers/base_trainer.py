@@ -102,7 +102,9 @@ class BaseTrainer:
 
         data_parallel = training_parameters.data_parallel
         distributed = training_parameters.distributed
-
+        
+        print('----------------- data_parallel ', data_parallel)
+        print('----------------- distributed', distributed)
         registry.register("data_parallel", data_parallel)
         registry.register("distributed", distributed)
 
@@ -123,6 +125,7 @@ class BaseTrainer:
             and torch.cuda.device_count() > 1
             and data_parallel is True
         ):
+            print('-------------- DataParallel')
             self.model = torch.nn.DataParallel(self.model)
 
         if (
@@ -130,6 +133,7 @@ class BaseTrainer:
             and self.local_rank is not None
             and distributed is True
         ):
+            print('-------------- DistributedDataParallel')
             torch.cuda.set_device(self.local_rank)
             self.model = torch.nn.parallel.DistributedDataParallel(
                 self.model, device_ids=[self.local_rank]

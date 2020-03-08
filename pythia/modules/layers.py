@@ -345,8 +345,9 @@ class TopDownAttentionLSTM(nn.Module):
         h1, c1 = state["td_hidden"]
         h2, c2 = state["lm_hidden"]
 
-        print('----------- h2, image_feat_mean, embedding ',
-            h2.shape, image_feat_mean.shape, embedding.shape)
+        #print('----------- h2, image_feat_mean, embedding ',
+        #    h2.shape, image_feat_mean.shape, embedding.shape)
+        #print('----------- h1, c1 ', h1.shape, c1.shape)
         h1, c1 = self.top_down_lstm(
             torch.cat([h2, image_feat_mean, embedding], dim=1), (h1, c1)
         )
