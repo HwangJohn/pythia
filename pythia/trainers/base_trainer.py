@@ -57,7 +57,7 @@ class BaseTrainer:
                 raise RuntimeError(
                     "Unable to initialize process group: NCCL is not available"
                 )
-            torch.distributed.init_process_group(backend="nccl")
+            torch.distributed.init_process_group(backend="nccl", rank=1, world_size=1)
             synchronize()
 
         if (
@@ -116,6 +116,8 @@ class BaseTrainer:
 
             self.writer.write(device_info, log_all=True)
 
+        print('----------------- self.local_rank, rank ',self.local_rank, rank)
+
         self.model = self.model.to(self.device)
 
         self.writer.write("Torch version is: " + torch.__version__)
@@ -138,6 +140,7 @@ class BaseTrainer:
             self.model = torch.nn.parallel.DistributedDataParallel(
                 self.model, device_ids=[self.local_rank]
             )
+
 
     def load_optimizer(self):
         self.optimizer = build_optimizer(self.model, self.config)
