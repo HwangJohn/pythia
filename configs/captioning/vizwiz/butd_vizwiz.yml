@@ -63,4 +63,3 @@ includes:
       monitored_metric: caption_bleu4
       metric_minimize: false
       data_parallel: true
-    
