@@ -4,7 +4,7 @@ from pythia.tasks.vqa.vqa2 import VQA2Builder
 from .dataset import VIZWIZDataset
 
 @registry.register_builder("vizwiz")
-class VIZWIZBuilder(VIZWIZBuilder):
+class VIZWIZBuilder(VQA2Builder):
     def __init__(self):
         super().__init__()
         self.dataset_name="vizwiz"
