@@ -9,7 +9,8 @@ class CaptioningTask(BaseTask):
         super(CaptioningTask, self).__init__("captioning")
 
     def _get_available_datasets(self):
-        return ["coco", "vizwiz"]
+        #return ["coco", "vizwiz"]
+        return ["vizwiz","coco" ]
 
     def _preprocess_item(self, item):
         return item
