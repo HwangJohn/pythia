@@ -30,7 +30,7 @@ class VIZWIZDataset(VQA2Dataset):
         else:
             current_sample.image_id = sample_info["image_id"]
 
-        if self._user_features is True:
+        if self._use_features is True:
             features = self.features_db[idx]
             current_sample.update(features)
 
