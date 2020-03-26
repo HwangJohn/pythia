@@ -33,7 +33,7 @@ if __name__ == "__main__":
         dependency_links=[
             "https://github.com/facebookresearch/fastText/tarball/master#egg=fastText"
         ],
-        version="0.3",
+        version="0.4",
         description=DESCRIPTION,
         long_description=LONG_DESCRIPTION,
         author=AUTHOR,

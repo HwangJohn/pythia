@@ -2,6 +2,8 @@
 import glob
 import importlib
 import os
+import sys
+sys.path.append(os.getcwd())
 
 from pythia.common.registry import registry
 from pythia.utils.build_utils import build_trainer
@@ -75,6 +77,7 @@ def run():
     setup_imports()
     parser = flags.get_parser()
     args = parser.parse_args()
+
     trainer = build_trainer(args)
 
     # Log any errors that occur to log file

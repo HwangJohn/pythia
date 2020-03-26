@@ -1,10 +1,10 @@
 task_attributes:
     captioning:
         datasets:
-        - coco
+        - vizwiz
         dataset_size_proportional_sampling: true
         dataset_attributes:
-            coco:
+            vizwiz:
                 data_root_dir: data
                 image_depth_first: false
                 fast_read: false

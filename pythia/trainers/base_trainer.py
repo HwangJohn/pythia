@@ -32,6 +32,7 @@ class BaseTrainer:
         self._init_process_group()
 
         self.run_type = self.config.training_parameters.get("run_type", "train")
+        print(f"------------- self.config {self.config!r}")
         self.task_loader = TaskLoader(self.config)
 
         self.writer = Logger(self.config)
@@ -116,7 +117,7 @@ class BaseTrainer:
 
             self.writer.write(device_info, log_all=True)
 
-        print('----------------- self.local_rank, rank ',self.local_rank, rank)
+        #print('----------------- self.local_rank, rank ',self.local_rank, rank)
 
         self.model = self.model.to(self.device)
 

@@ -157,7 +157,7 @@ class BaseTask(Dataset):
         idx = idx % self.per_dataset_lengths[self.dataset_choice]
 
         item = self.chosen_dataset[idx]
-
+        print(f"---------------- base_task.py: {item!r}")
         return self._preprocess_item(item)
 
     def change_dataset(self):
