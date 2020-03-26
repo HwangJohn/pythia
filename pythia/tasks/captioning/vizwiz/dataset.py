@@ -13,7 +13,7 @@ class VIZWIZDataset(VQA2Dataset):
         current_sample = Sample()
 
         if self._dataset_type != "test":
-            text_processor_argument = {"tokens":sample_info["caption_tockens"]}
+            text_processor_argument = {"tokens":sample_info["caption_tokens"]}
             processed_caption = self.text_processor(text_processor_argument)
             current_sample.text = processed_caption["text"]
             current_sample.caption_id = torch.tensor(
