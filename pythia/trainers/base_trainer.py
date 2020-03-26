@@ -102,7 +102,7 @@ class BaseTrainer:
 
         data_parallel = training_parameters.data_parallel
         distributed = training_parameters.distributed
-        
+
         print('----------------- data_parallel ', data_parallel)
         print('----------------- distributed', distributed)
         registry.register("data_parallel", data_parallel)
@@ -252,6 +252,7 @@ class BaseTrainer:
                 if should_break:
                     break
 
+        # 현재 까지 쌓은 데이터로 검증 시작
         self.finalize()
 
     def _run_scheduler(self):
@@ -287,8 +288,12 @@ class BaseTrainer:
     def finalize(self):
         self.writer.write("Stepping into final validation check")
         self._try_full_validation(force=True)
+
+        # best 모델 로딩
         self.checkpoint.restore()
+        # 모델 저장
         self.checkpoint.finalize()
+        # 인퍼런스 실시
         self.inference()
 
     def _update_meter(self, report, meter=None, eval_mode=False):
