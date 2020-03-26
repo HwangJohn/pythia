@@ -10,11 +10,11 @@ task_attributes:
                 fast_read: false
                 image_features:
                     train:
-                    - data/vizwiz/train_npy
+                    - vizwiz/train_npy
                     val:
-                    - data/vizwiz/val_npy
+                    - vizwiz/val_npy
                     test:
-                    - data/vizwiz/test_npy
+                    - vizwiz/test_npy
                 imdb_files:
                     train:
                     - imdb/coco_captions/imdb_karpathy_train.npy
