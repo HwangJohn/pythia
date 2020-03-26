@@ -13,7 +13,7 @@ class VIZWIZDataset(VQA2Dataset):
         current_sample = Sample()
 
         if self._dataset_type != "test":
-            text_processor_argument = {"tockens":sample_info["caption_tockens"]}
+            text_processor_argument = {"tokens":sample_info["caption_tockens"]}
             processed_caption = self.text_processor(text_processor_argument)
             current_sample.text = processed_caption["text"]
             current_sample.caption_id = torch.tensor(
@@ -24,11 +24,11 @@ class VIZWIZDataset(VQA2Dataset):
             )
 
         if isinstance(sample_info["image_id"], int):
-            current_sapmle.image_id = torch.tensor(
+            current_sample.image_id = torch.tensor(
                 sample_info["image_id"], dtype=torch.int
             )
         else:
-            current_smaple.image_id = sample_info["image_id"]
+            current_sample.image_id = sample_info["image_id"]
 
         if self._user_features is True:
             features = self.features_db[idx]
