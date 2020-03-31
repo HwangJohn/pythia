@@ -8,11 +8,6 @@ from pythia.common.registry import registry
 class Flags:
     def __init__(self):
         self.parser = argparse.ArgumentParser()
-        self.args = self.parser.parse_args()
-        self.args.tasks = "captioning"
-        self.args.datasets = "coco"
-        self.args.model = "butd"
-        self.args.config = "configs/captioning/coco/my_vizwiz.yml"
         self.add_core_args()
         self.update_task_args()
         self.update_model_args()
@@ -22,43 +17,23 @@ class Flags:
 
     def add_core_args(self):
         # TODO: Update default values
-        # self.parser.add_argument_group("Core Arguments")
-
-        # self.parser.add_argument(
-        #     "--config", type=str, default="configs/captioning/coco/my_vizwiz.yml", required=False, help="config yaml file"
-        # )
-
-        # self.parser.add_argument(
-        #     "--tasks", type=str, default = "captioning", help="Tasks for training"
-        # )
-        # self.parser.add_argument(
-        #     "--datasets",
-        #     type=str,
-        #     required=False,
-        #     default="coco",
-        #     help="Datasets to be used for required task",
-        # )
-        # self.parser.add_argument(
-        #     "--model", type=str, default="butd", help="Model for training"
-        # )
         self.parser.add_argument_group("Core Arguments")
 
         self.parser.add_argument(
-            "--config", type=str, default=None, required=False, help="config yaml file"
+            "--config", type=str, default="configs/captioning/vizwiz/local_butd_vizwiz.yml", required=False, help="config yaml file"
         )
 
         self.parser.add_argument(
-            "--tasks", type=str, required=True, help="Tasks for training"
+            "--tasks", type=str, default="captioning", help="Tasks for training"
         )
         self.parser.add_argument(
             "--datasets",
             type=str,
-            required=False,
-            default="all",
+            default="vizwiz",
             help="Datasets to be used for required task",
         )
         self.parser.add_argument(
-            "--model", type=str, required=True, help="Model for training"
+            "--model", type=str, default="butd", help="Model for training"
         )
         self.parser.add_argument(
             "--run_type",
