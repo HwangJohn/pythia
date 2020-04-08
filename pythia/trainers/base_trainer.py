@@ -32,7 +32,7 @@ class BaseTrainer:
         self._init_process_group()
 
         self.run_type = self.config.training_parameters.get("run_type", "train")
-        print(f"------------- self.config {self.config!r}")
+        # print(f"------------- self.config {self.config!r}")
         self.task_loader = TaskLoader(self.config)
 
         self.writer = Logger(self.config)
@@ -104,8 +104,8 @@ class BaseTrainer:
         data_parallel = training_parameters.data_parallel
         distributed = training_parameters.distributed
 
-        print('----------------- data_parallel ', data_parallel)
-        print('----------------- distributed', distributed)
+        # print('----------------- data_parallel ', data_parallel)
+        # print('----------------- distributed', distributed)
         registry.register("data_parallel", data_parallel)
         registry.register("distributed", distributed)
 
