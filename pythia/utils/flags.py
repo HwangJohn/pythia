@@ -18,22 +18,22 @@ class Flags:
     def add_core_args(self):
         # TODO: Update default values
         self.parser.add_argument_group("Core Arguments")
-
         self.parser.add_argument(
-            "--config", type=str, default="configs/captioning/vizwiz/local_butd_vizwiz.yml", required=False, help="config yaml file"
+            "--config", type=str, default=None, required=False, help="config yaml file"
         )
 
         self.parser.add_argument(
-            "--tasks", type=str, default="captioning", help="Tasks for training"
+            "--tasks", type=str, required=True, help="Tasks for training"
         )
         self.parser.add_argument(
             "--datasets",
             type=str,
-            default="vizwiz",
+            required=False,
+            default="all",
             help="Datasets to be used for required task",
         )
         self.parser.add_argument(
-            "--model", type=str, default="butd", help="Model for training"
+            "--model", type=str, required=True, help="Model for training"
         )
         self.parser.add_argument(
             "--run_type",

@@ -5,7 +5,7 @@ task_attributes:
         dataset_size_proportional_sampling: true
         dataset_attributes:
             vizwiz:
-                data_root_dir: data
+                data_root_dir: ../data
                 image_depth_first: false
                 fast_read: false
                 image_features:
@@ -17,11 +17,11 @@ task_attributes:
                     - vizwiz/test_npy
                 imdb_files:
                     train:
-                    - imdb/coco_captions/imdb_karpathy_train.npy
+                    - vizwiz/imdb_vizwiz_train.npy
                     val:
-                    - imdb/coco_captions/imdb_karpathy_val.npy
+                    - vizwiz/imdb_vizwiz_val.npy
                     test:
-                    - imdb/coco_captions/imdb_karpathy_test.npy
+                    - vizwiz/imdb_vizwiz_test.npy
                 features_max_len: 100
                 processors:
                   text_processor:
