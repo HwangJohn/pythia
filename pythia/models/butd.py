@@ -134,6 +134,7 @@ class BUTD(Pythia):
             if self.config["inference"]["type"] in ["beam_search", "nucleus_sampling"]:
                 pi_t = data["texts"]
             else:
+                print("------------------- t, data['texts']: ", t, data["texts"])
                 pi_t = data["texts"][:, t].unsqueeze(-1)
             embedding = self.word_embedding(pi_t)
             attention_feature, _ = self.process_feature_embedding(
