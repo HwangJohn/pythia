@@ -14,7 +14,7 @@ task_attributes:
                     val:
                     - coco/detectron_fix_100/fc6/train_val_2014
                     test:
-                    - coco/detectron_fix_100/fc6/train_val_2014
+                    - coco/detectron_fix_100/fc6/test2015
                 imdb_files:
                     train:
                     - imdb/coco_captions/imdb_vizwiz_train.npy
