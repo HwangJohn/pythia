@@ -264,6 +264,8 @@ class BaseTrainer:
         prepared_batch = self.task_loader.prepare_batch(batch)
         self.profile("Batch prepare time")
 
+        print(f"------------ prepared_batch: {type(prepared_batch)!r}")
+
         # Arguments should be a dict at this point
         model_output = self.model(prepared_batch)
         report = Report(prepared_batch, model_output)
@@ -396,7 +398,7 @@ class BaseTrainer:
         with torch.no_grad():
             self.model.eval()
             for batch in tqdm(loader, disable=not use_tqdm):
-                print(f"batch shape: {batch.shape!r}, batch type: {type(batch)!r}")
+                # print(f"batch shape: {batch.shape!r}, batch type: {type(batch)!r}")
                 report = self._forward_pass(batch)
                 self._update_meter(report, meter, eval_mode=True)
 
