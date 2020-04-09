@@ -47,15 +47,15 @@ training_parameters:
   lr_ratio: 0.1
   lr_scheduler: true
   lr_steps:
-  - 5
-  - 10
-  - 15
-  - 20
+  - 1500
+  - 2500
+  - 3500
+  - 4500
   max_grad_l2_norm: 0.25
-  max_iterations: 1
+  max_iterations: 5000
   use_warmup: true
   warmup_factor: 0.2
-  warmup_iterations: 1
+  warmup_iterations: 100
   patience: 4000
   batch_size: 256
   num_workers: 7

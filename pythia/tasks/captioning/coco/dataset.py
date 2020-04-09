@@ -12,7 +12,7 @@ class COCODataset(VQA2Dataset):
 
     def load_item(self, idx):
         sample_info = self.imdb[idx]
-        print("---------------------- sample_info", sample_info)
+        #print("---------------------- sample_info", sample_info)
         current_sample = Sample()
 
         if self._dataset_type != "test":
