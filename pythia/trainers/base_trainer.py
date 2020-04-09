@@ -396,6 +396,7 @@ class BaseTrainer:
         with torch.no_grad():
             self.model.eval()
             for batch in tqdm(loader, disable=not use_tqdm):
+                print(f"batch shape: {batch.shape!r}, batch type: {type(batch)!r}")
                 report = self._forward_pass(batch)
                 self._update_meter(report, meter, eval_mode=True)
 
