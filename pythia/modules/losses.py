@@ -234,6 +234,9 @@ class CaptionCrossEntropyLoss(nn.Module):
         scores = model_output["scores"]
         targets = sample_list["targets"]
 
+        print(f"scores: {type(scores)!r}, targets: {type(targets)!r}")
+        print(f"scores: {scores.shape!r}, targets: {targets.shape!r}")
+
         # If no captions(test dataset) then assume decode length to be uniform
         if hasattr(sample_list, "caption_len"):
             caption_lengths, _ = sample_list.caption_len.sort(dim=0, descending=True)
