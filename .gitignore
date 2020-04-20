@@ -29,3 +29,5 @@ content/
 demo/
 nohup.out
 pythia/data_ori/
+cocoapi/
+*.out

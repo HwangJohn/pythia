@@ -1,0 +1,15 @@
+torchvision
+torch
+tensorboardX
+numpy
+tqdm
+demjson
+torchtext
+GitPython
+PyYAML
+pytest
+requests
+fastText
+nltk
+transformers
+block.bootstrap.pytorch

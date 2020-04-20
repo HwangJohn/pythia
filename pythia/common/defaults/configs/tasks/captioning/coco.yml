@@ -15,25 +15,31 @@ task_attributes:
                     - coco/detectron_fix_100/fc6/train_val_2014
                     test:
                     - coco/detectron_fix_100/fc6/train_val_2014
+                    #- coco/detectron_fix_100/fc6/test2015
+                    #- coco/detectron_fix_100/fc6/train_val_2014
                 imdb_files:
-                    train:
-                    - imdb/coco_captions/imdb_vizwiz_train.npy
-                    val:
-                    - imdb/coco_captions/imdb_vizwiz_val.npy
-                    test:
-                    - imdb/coco_captions/imdb_vizwiz_test.npy
                     #train:
-                    #- imdb/coco_captions/imdb_karpathy_train.npy
+                    #- imdb/coco_captions/imdb_vizwiz_train.npy
                     #val:
-                    #- imdb/coco_captions/imdb_karpathy_val.npy
+                    #- imdb/coco_captions/imdb_vizwiz_val.npy
                     #test:
+                    #- imdb/coco_captions/imdb_vizwiz_test.npy
+                    train:
+                    - imdb/coco_captions/imdb_vizwiz_train_cut.npy
+                    #- imdb/coco_captions/imdb_karpathy_train.npy
+                    val:
+                    - imdb/coco_captions/imdb_karpathy_val.npy
+                    test:
+                    - imdb/coco_captions/imdb_vizwiz_val_cut_coco.npy
+                    #- imdb/coco_captions/imdb_vizwiz_val_cut.npy
+                    #- imdb/coco_captions/imdb_vizwiz_val.npy
                     #- imdb/coco_captions/imdb_karpathy_test.npy
                 features_max_len: 100
                 processors:
                   text_processor:
                     type: vocab
                     params:
-                      max_length: 52
+                      max_length: 100
                       vocab:
                         type: intersected
                         embedding_name: glove.6B.300d
